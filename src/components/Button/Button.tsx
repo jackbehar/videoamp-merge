@@ -1,18 +1,16 @@
 import React from "react";
+import { Button, ButtonProps } from '@preamp/core';
 
-interface ButtonProps {
-  label: string;
-  disabled: boolean;
-  onClick(): void;
+export interface props extends ButtonProps {
+//Extend properties here
 }
 
-export default function Button(props: ButtonProps) {
+export default function ButtonPreamp(props: props) {
   return (
-    <button
-      onClick={props.onClick}
-      disabled={props.disabled}
+    <Button
+      {...props}
     >
-      {props.label}
-    </button>
+      {props.children}
+    </Button>
   );
 }
